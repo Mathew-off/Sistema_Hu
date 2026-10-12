@@ -1,122 +1,257 @@
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Biblioteca de Manuais de Usuário</title>
+  <title>Manuais de equipamentos | Central de Manuais</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="home.css">
 </head>
 <body>
 
-  <header>
-    <div class="header-container">
-      <div class="logo">
-        <h1>📖 Central de Manuais</h1>
-      </div>
-      <div class="search-box">
-        <input type="text" placeholder="Buscar por equipamento, marca ou modelo...">
-      </div>
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <span class="brand-mark">
+        <img class="icon icon--lg" src="https://img.icons8.com/ios/50/FFFFFF/book.png" alt="" width="24" height="24">
+      </span>
+      <span class="brand-name">Central de Manuais</span>
+      <span class="brand-divider" aria-hidden="true"></span>
+      <span class="brand-desc">Equipamentos hospitalares e laboratoriais</span>
     </div>
   </header>
 
-  <main>
-    <!-- Grid de Manuais -->
-    <div class="grid">
+  <div class="page-head">
+    <div class="container">
+      <h1>Manuais de equipamentos</h1>
+      <p>Pesquise por equipamento, marca ou modelo para visualizar ou baixar o manual do usuário.</p>
+    </div>
+  </div>
 
-      <!-- Card 1 -->
-      <div class="card">
-        <div class="card-info">
-          <div class="info-item">
-            <span class="info-label">Equipamento</span>
-            <span class="info-value">AGITADOR LAB</span>
-          </div>
-          <div class="info-item">
-            <span class="info-label">Marca</span>
-            <span class="info-value">BENFER</span>
-          </div>
-          <div class="info-item">
-            <span class="info-label">Modelo</span>
-            <span class="info-value">BAK-250-D</span>
-          </div>
-        </div>
-        <div class="card-footer">
-          <a href="#" class="btn btn-outline">Visualizar</a>
-          <a href="#" class="btn btn-primary" download>Download</a>
+  <div class="toolbar" role="search">
+    <div class="container toolbar-inner">
+
+      <div class="field field-search">
+        <label class="field-label" for="search">Buscar manual</label>
+        <div class="control">
+          <img class="control-icon icon" src="https://img.icons8.com/ios/50/56666D/search.png" alt="" width="18" height="18">
+          <input id="search" type="search" placeholder="Equipamento, marca ou modelo" autocomplete="off">
+          <kbd aria-hidden="true">/</kbd>
         </div>
       </div>
 
-      <!-- Card 2 -->
-      <div class="card">
-        <div class="card-info">
-          <div class="info-item">
-            <span class="info-label">Equipamento</span>
-            <span class="info-value">BOMBA INFUSAO SERINGA</span>
-          </div>
-          <div class="info-item">
-            <span class="info-label">Marca</span>
-            <span class="info-value">FRESENIUS KABI</span>
-          </div>
-          <div class="info-item">
-            <span class="info-label">Modelo</span>
-            <span class="info-value">AGILIA SP MC</span>
-          </div>
-        </div>
-        <div class="card-footer">
-          <a href="#" class="btn btn-outline">Visualizar</a>
-          <a href="#" class="btn btn-primary" download>Download</a>
+      <div class="field field-brand">
+        <label class="field-label" for="brand">Marca</label>
+        <div class="control control-select">
+          <select id="brand">
+            <option value="">Todas as marcas</option>
+          </select>
         </div>
       </div>
 
-      <!-- Card 3 -->
-      <div class="card">
-        <div class="card-info">
-          <div class="info-item">
-            <span class="info-label">Equipamento</span>
-            <span class="info-value">Ar Condicionado</span>
-          </div>
-          <div class="info-item">
-            <span class="info-label">Marca</span>
-            <span class="info-value">LG</span>
-          </div>
-          <div class="info-item">
-            <span class="info-label">Modelo</span>
-            <span class="info-value">Dual Inverter 12000 BTU</span>
-          </div>
-        </div>
-        <div class="card-footer">
-          <a href="#" class="btn btn-outline">Visualizar</a>
-          <a href="#" class="btn btn-primary" download>Download</a>
-        </div>
-      </div>
+      <p class="count" id="count" aria-live="polite"></p>
+    </div>
+  </div>
 
-      <!-- Card 4 -->
-      <div class="card">
-        <div class="card-info">
-          <div class="info-item">
-            <span class="info-label">Equipamento</span>
-            <span class="info-value">MONITOR MULTIPARAMETRICO</span>
-          </div>
-          <div class="info-item">
-            <span class="info-label">Marca</span>
-            <span class="info-value">DIXTAL</span>
-          </div>
-          <div class="info-item">
-            <span class="info-label">Modelo</span>
-            <span class="info-value">DX-2022 +</span>
-          </div>
-        </div>
-        <div class="card-footer">
-          <a href="#" class="btn btn-outline">Visualizar</a>
-          <a href="#" class="btn btn-primary" download>Download</a>
-        </div>
-      </div>
+  <main class="container">
+    <div class="grid" id="grid">
 
+      <article class="card">
+        <header class="card-head">
+          <span class="card-icon">
+            <img class="icon icon--lg" src="https://img.icons8.com/ios/50/0E6B7C/test-tube.png" alt="" width="24" height="24">
+          </span>
+          <h2 class="card-title" data-field="equip">Agitador de laboratório</h2>
+        </header>
+        <dl class="card-meta">
+          <div><dt>Marca</dt><dd data-field="brand">Benfer</dd></div>
+          <div><dt>Modelo</dt><dd class="model" data-field="model">BAK-250-D</dd></div>
+        </dl>
+        <div class="card-actions">
+          <a href="#" class="btn btn-outline" target="_blank" rel="noopener" aria-label="Visualizar manual: Agitador de laboratório Benfer BAK-250-D">
+            <img class="icon" src="https://img.icons8.com/ios/50/14262E/visible.png" alt="" width="18" height="18">Visualizar
+          </a>
+          <a href="#" class="btn btn-primary" download aria-label="Baixar manual: Agitador de laboratório Benfer BAK-250-D">
+            <img class="icon" src="https://img.icons8.com/ios/50/FFFFFF/download.png" alt="" width="18" height="18">Download
+          </a>
+        </div>
+      </article>
+
+      <article class="card">
+        <header class="card-head">
+          <span class="card-icon">
+            <img class="icon icon--lg" src="https://img.icons8.com/ios/50/0E6B7C/syringe.png" alt="" width="24" height="24">
+          </span>
+          <h2 class="card-title" data-field="equip">Bomba de infusão de seringa</h2>
+        </header>
+        <dl class="card-meta">
+          <div><dt>Marca</dt><dd data-field="brand">Fresenius Kabi</dd></div>
+          <div><dt>Modelo</dt><dd class="model" data-field="model">Agilia SP MC</dd></div>
+        </dl>
+        <div class="card-actions">
+          <a href="#" class="btn btn-outline" target="_blank" rel="noopener" aria-label="Visualizar manual: Bomba de infusão de seringa Fresenius Kabi Agilia SP MC">
+            <img class="icon" src="https://img.icons8.com/ios/50/14262E/visible.png" alt="" width="18" height="18">Visualizar
+          </a>
+          <a href="#" class="btn btn-primary" download aria-label="Baixar manual: Bomba de infusão de seringa Fresenius Kabi Agilia SP MC">
+            <img class="icon" src="https://img.icons8.com/ios/50/FFFFFF/download.png" alt="" width="18" height="18">Download
+          </a>
+        </div>
+      </article>
+
+      <article class="card">
+        <header class="card-head">
+          <span class="card-icon">
+            <img class="icon icon--lg" src="https://img.icons8.com/ios/50/0E6B7C/air-conditioner.png" alt="" width="24" height="24">
+          </span>
+          <h2 class="card-title" data-field="equip">Ar-condicionado</h2>
+        </header>
+        <dl class="card-meta">
+          <div><dt>Marca</dt><dd data-field="brand">LG</dd></div>
+          <div><dt>Modelo</dt><dd class="model" data-field="model">Dual Inverter 12000 BTU</dd></div>
+        </dl>
+        <div class="card-actions">
+          <a href="#" class="btn btn-outline" target="_blank" rel="noopener" aria-label="Visualizar manual: Ar-condicionado LG Dual Inverter 12000 BTU">
+            <img class="icon" src="https://img.icons8.com/ios/50/14262E/visible.png" alt="" width="18" height="18">Visualizar
+          </a>
+          <a href="#" class="btn btn-primary" download aria-label="Baixar manual: Ar-condicionado LG Dual Inverter 12000 BTU">
+            <img class="icon" src="https://img.icons8.com/ios/50/FFFFFF/download.png" alt="" width="18" height="18">Download
+          </a>
+        </div>
+      </article>
+
+      <article class="card">
+        <header class="card-head">
+          <span class="card-icon">
+            <img class="icon icon--lg" src="https://img.icons8.com/ios/50/0E6B7C/heart-monitor.png" alt="" width="24" height="24">
+          </span>
+          <h2 class="card-title" data-field="equip">Monitor multiparamétrico</h2>
+        </header>
+        <dl class="card-meta">
+          <div><dt>Marca</dt><dd data-field="brand">Dixtal</dd></div>
+          <div><dt>Modelo</dt><dd class="model" data-field="model">DX-2022 +</dd></div>
+        </dl>
+        <div class="card-actions">
+          <a href="#" class="btn btn-outline" target="_blank" rel="noopener" aria-label="Visualizar manual: Monitor multiparamétrico Dixtal DX-2022 +">
+            <img class="icon" src="https://img.icons8.com/ios/50/14262E/visible.png" alt="" width="18" height="18">Visualizar
+          </a>
+          <a href="#" class="btn btn-primary" download aria-label="Baixar manual: Monitor multiparamétrico Dixtal DX-2022 +">
+            <img class="icon" src="https://img.icons8.com/ios/50/FFFFFF/download.png" alt="" width="18" height="18">Download
+          </a>
+        </div>
+      </article>
+
+    </div>
+
+    <div class="empty" id="empty" hidden>
+      <h2>Nenhum manual encontrado</h2>
+      <p>Confira a grafia ou busque por outro equipamento, marca ou modelo.</p>
+      <button type="button" class="btn btn-outline" id="clear">Limpar busca e filtros</button>
     </div>
   </main>
 
-  <footer>
-    <p>&copy; 2026 Biblioteca de Manuais. Todos os direitos reservados.</p>
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; 2026 Central de Manuais. Todos os direitos reservados.</p>
+    </div>
   </footer>
+
+  <script>
+    (function () {
+      var input = document.getElementById('search');
+      var select = document.getElementById('brand');
+      var count = document.getElementById('count');
+      var empty = document.getElementById('empty');
+      var grid = document.getElementById('grid');
+      var clear = document.getElementById('clear');
+
+      function norm(s) {
+        return s.normalize('NFD')
+          .replace(/[\u0300-\u036f]/g, '')
+          .toLowerCase()
+          .trim();
+      }
+
+      function field(card, name) {
+        return card.querySelector('[data-field="' + name + '"]').textContent.trim();
+      }
+
+      var items = Array.prototype.map.call(grid.querySelectorAll('.card'), function (card) {
+        var brand = field(card, 'brand');
+        return {
+          card: card,
+          brand: brand,
+          text: norm([field(card, 'equip'), brand, field(card, 'model')].join(' '))
+        };
+      });
+
+      items
+        .map(function (i) { return i.brand; })
+        .filter(function (b, idx, arr) { return arr.indexOf(b) === idx; })
+        .sort(function (a, b) { return a.localeCompare(b, 'pt-BR'); })
+        .forEach(function (b) {
+          var opt = document.createElement('option');
+          opt.value = b;
+          opt.textContent = b;
+          select.appendChild(opt);
+        });
+
+      function label(n) {
+        return n + (n === 1 ? ' manual' : ' manuais');
+      }
+
+      function update() {
+        var terms = norm(input.value).split(/\s+/).filter(Boolean);
+        var brand = select.value;
+        var shown = 0;
+
+        items.forEach(function (i) {
+          var match = (!brand || i.brand === brand) &&
+            terms.every(function (t) { return i.text.indexOf(t) !== -1; });
+
+          i.card.hidden = !match;
+          if (match) shown++;
+        });
+
+        count.textContent = shown === items.length
+          ? label(items.length)
+          : shown + ' de ' + label(items.length);
+
+        empty.hidden = shown !== 0;
+      }
+
+      function reset() {
+        input.value = '';
+        select.value = '';
+        update();
+        input.focus();
+      }
+
+      input.addEventListener('input', update);
+      select.addEventListener('change', update);
+      clear.addEventListener('click', reset);
+
+      document.addEventListener('keydown', function (e) {
+        var tag = document.activeElement && document.activeElement.tagName;
+
+        if (e.key === '/' && tag !== 'INPUT' && tag !== 'SELECT' && tag !== 'TEXTAREA') {
+          e.preventDefault();
+          input.focus();
+        }
+      });
+
+      input.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && input.value) {
+          input.value = '';
+          update();
+        }
+      });
+
+      update();
+    })();
+  </script>
 
 </body>
 </html>
